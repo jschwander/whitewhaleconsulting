@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Host canonicalization lives in vercel.json + middleware.ts (apex → www only).
-  // Do not add redirects here that send www → apex — that causes a loop with Vercel domain settings.
+  // Host canonicalization: vercel.json only (308 apex → www). No middleware host redirects.
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
