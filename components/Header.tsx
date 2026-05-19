@@ -16,6 +16,9 @@ export default function Header() {
   const pathname = usePathname();
   // Home: always dark header (no scroll transition = no jitter). Other pages: light header.
   const overHero = pathname === '/';
+  const logoSrc = overHero ? '/assets/logo3.png' : '/assets/logodark.png';
+  const logoWidth = overHero ? 512 : 256;
+  const logoHeight = overHero ? 170 : 85;
 
   return (
     <header
@@ -28,10 +31,13 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-8 h-16 md:h-20 flex items-center justify-between">
         <AppLink href="/" className="flex items-center shrink-0" aria-label="White Whale Consulting – Home">
           <Image
-            src={overHero ? '/assets/logo.png' : '/assets/logodark.png'}
+            src={logoSrc}
             alt="White Whale Consulting"
-            width={56}
-            height={56}
+            width={logoWidth}
+            height={logoHeight}
+            quality={90}
+            sizes="(max-width: 768px) 160px, 200px"
+            priority={overHero}
             className="h-12 w-auto object-contain md:h-14"
           />
         </AppLink>
