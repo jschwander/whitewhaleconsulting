@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import Providers from '@/components/Providers';
+import CanonicalHostScript from '@/components/CanonicalHostScript';
 import { CANONICAL_SITE_URL } from '@/lib/site';
 
 const playfair = Playfair_Display({
@@ -38,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col bg-page">
+        <CanonicalHostScript />
         <Providers>
           <ScrollToTop />
           <Header />

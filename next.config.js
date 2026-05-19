@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Host canonicalization: vercel.json only (308 apex → www). No middleware host redirects.
+  // Host canonicalization: vercel.json (308) + middleware.ts (apex → www for RSC routes).
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
