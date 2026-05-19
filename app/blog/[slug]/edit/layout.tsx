@@ -1,6 +1,6 @@
 import { AuthProvider } from '@/context/AuthProvider';
 
-export default function AdminLayout({
+export default function EditPostLayout({
   children,
 }: {
   children: React.ReactNode;

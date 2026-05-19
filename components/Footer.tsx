@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import AppLink from '@/components/AppLink';
 import Image from 'next/image';
 
 const footerLinks = [
@@ -29,13 +29,13 @@ export default function Footer() {
           </div>
           <nav className="flex flex-wrap gap-6">
             {footerLinks.map(({ href, label }) => (
-              <Link
+              <AppLink
                 key={href}
                 href={href}
                 className="text-slate-600 hover:text-teal text-sm transition-colors"
               >
                 {label}
-              </Link>
+              </AppLink>
             ))}
           </nav>
         </div>

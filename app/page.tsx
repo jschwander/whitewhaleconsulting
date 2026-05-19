@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import AppLink from '@/components/AppLink';
 import Image from 'next/image';
 
 export default function HomePage() {
@@ -13,8 +13,8 @@ export default function HomePage() {
             fill
             className="object-cover"
             priority
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-            quality={75}
+            sizes="(max-width: 640px) 100vw, (max-width: 1080px) 100vw, 1080px"
+            quality={65}
           />
           {/* Semi-transparent overlay so ocean/whale image shows through; dark at top for header, fade to white at bottom only. */}
           <div
@@ -35,18 +35,18 @@ export default function HomePage() {
             </span>
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
+            <AppLink
               href="/contact"
               className="inline-flex items-center justify-center px-6 py-3.5 rounded-md bg-teal text-white font-semibold hover:bg-teal-light transition-colors"
             >
               Book a Call
-            </Link>
-            <Link
+            </AppLink>
+            <AppLink
               href="/services"
               className="inline-flex items-center justify-center px-6 py-3.5 rounded-md border border-ivory/40 text-ivory font-medium hover:bg-white/5 transition-colors"
             >
               See Services
-            </Link>
+            </AppLink>
           </div>
           <p className="mt-8 text-ivory/70 text-sm">
             Coaching • Strategic Planning • Conflict Resolution
@@ -106,12 +106,12 @@ export default function HomePage() {
               </ul>
             </div>
             <p className="pt-2">
-              <Link
+              <AppLink
                 href="/services"
                 className="text-teal-500 text-sm font-medium hover:underline"
               >
                 Learn more
-              </Link>
+              </AppLink>
             </p>
           </div>
         </div>
@@ -238,12 +238,12 @@ export default function HomePage() {
               Book a short call. We will listen and help you choose the next right step.
             </p>
           </div>
-          <Link
+          <AppLink
             href="/contact"
             className="inline-flex items-center justify-center px-8 py-4 rounded-md bg-teal text-white font-semibold hover:bg-teal-light transition-colors shrink-0"
           >
             Book a Call
-          </Link>
+          </AppLink>
         </div>
       </section>
     </div>
