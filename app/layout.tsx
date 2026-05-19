@@ -4,7 +4,8 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
-import { AuthProvider } from '@/context/AuthProvider';
+import Providers from '@/components/Providers';
+import { CANONICAL_SITE_URL } from '@/lib/site';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -19,6 +20,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(CANONICAL_SITE_URL),
   title: 'White Whale Consulting | Clarity Beneath the Surface',
   description:
     'We help leaders get beneath the surface—coaching, strategic planning, and conflict resolution so teams can move forward with clarity.',
@@ -36,12 +38,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col bg-page">
-        <AuthProvider>
+        <Providers>
           <ScrollToTop />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
-        </AuthProvider>
+        </Providers>
       </body>
     </html>
   );

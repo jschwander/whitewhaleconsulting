@@ -21,7 +21,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,box-shadow] duration-300 ${
         overHero
-          ? 'bg-navy/80 backdrop-blur-md border-b border-white/10'
+          ? 'bg-navy/95 border-b border-white/10 md:bg-navy/80 md:backdrop-blur-md'
           : 'bg-white border-b border-slate-200 shadow-sm'
       }`}
     >

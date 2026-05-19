@@ -4,7 +4,12 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html:not(.no-smooth-scroll) {
+      scroll-behavior: smooth;
+    }
   }
   body {
     @apply bg-page text-slate-600 font-sans antialiased;

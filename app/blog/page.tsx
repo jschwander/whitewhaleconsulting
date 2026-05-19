@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { verifyAdminSession } from '@/lib/auth/session';
 import { getAllBlogPosts, formatPostDate } from '@/lib/blog/posts';
-import BlogAdminActions from '@/components/blog/BlogAdminActions';
-import BlogPostEditLink from '@/components/blog/BlogPostEditLink';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,7 +11,10 @@ export const metadata = {
 };
 
 export default async function BlogPage() {
-  const posts = await getAllBlogPosts();
+  const [posts, admin] = await Promise.all([
+    getAllBlogPosts(),
+    verifyAdminSession(),
+  ]);
 
   return (
     <div className="pt-16 md:pt-20 bg-page min-h-screen">
@@ -31,7 +33,14 @@ export default async function BlogPage() {
                 surface.
               </p>
             </div>
-            <BlogAdminActions />
+            {admin ? (
+              <Link
+                href="/blog/new"
+                className="inline-flex items-center px-6 py-2.5 rounded-md bg-teal text-white font-semibold text-sm hover:bg-teal-light transition-colors shrink-0"
+              >
+                + New post
+              </Link>
+            ) : null}
           </div>
 
           {posts.length === 0 ? (
@@ -73,7 +82,14 @@ export default async function BlogPage() {
                             {post.title}
                           </Link>
                         </h2>
-                        <BlogPostEditLink slug={post.slug} />
+                        {admin ? (
+                          <Link
+                            href={`/blog/${post.slug}/edit`}
+                            className="shrink-0 text-xs font-semibold uppercase tracking-wide text-slate-500 hover:text-teal"
+                          >
+                            Edit
+                          </Link>
+                        ) : null}
                       </div>
                       {post.excerpt ? (
                         <p className="mt-1.5 line-clamp-2 text-sm text-slate-600">

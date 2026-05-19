@@ -2,8 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getBlogPostBySlug, formatPostDate } from '@/lib/blog/posts';
+import { verifyAdminSession } from '@/lib/auth/session';
 import BlogPostBody from '@/components/blog/BlogPostBody';
-import BlogPostEditLink from '@/components/blog/BlogPostEditLink';
 
 type Props = { params: { slug: string } };
 
@@ -17,7 +17,10 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const post = await getBlogPostBySlug(params.slug);
+  const [post, admin] = await Promise.all([
+    getBlogPostBySlug(params.slug),
+    verifyAdminSession(),
+  ]);
   if (!post) notFound();
 
   const dateLabel = formatPostDate(post.publishedAt);
@@ -32,7 +35,14 @@ export default async function BlogPostPage({ params }: Props) {
           >
             ← Blog
           </Link>
-          <BlogPostEditLink slug={post.slug} />
+          {admin ? (
+            <Link
+              href={`/blog/${post.slug}/edit`}
+              className="text-xs font-semibold uppercase tracking-wide text-slate-500 hover:text-teal"
+            >
+              Edit post
+            </Link>
+          ) : null}
         </div>
 
         {post.coverImage ? (

@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -18,9 +18,18 @@ function AdminLoginForm() {
 
   const next = searchParams.get('next') || '/blog/new';
 
+  useEffect(() => {
+    if (!loading && user && isAdmin) {
+      router.replace(next);
+    }
+  }, [loading, user, isAdmin, next, router]);
+
   if (!loading && user && isAdmin) {
-    router.replace(next);
-    return null;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-page text-slate-500 text-sm">
+        Redirecting…
+      </div>
+    );
   }
 
   async function onSubmit(e: React.FormEvent) {

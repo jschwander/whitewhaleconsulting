@@ -89,16 +89,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const unsub = onAuthStateChanged(auth, async (firebaseUser) => {
       setUser(firebaseUser);
       await loadProfile(firebaseUser);
-      if (firebaseUser && db) {
-        try {
-          const snap = await getDoc(doc(db, 'users', firebaseUser.uid));
-          if (snap.exists() && snap.data()?.role === 'admin') {
-            await establishServerSession(firebaseUser);
-          }
-        } catch {
-          /* session cookie optional until next sign-in */
-        }
-      }
       setLoading(false);
     });
 

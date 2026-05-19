@@ -13,7 +13,8 @@ export default function HomePage() {
             fill
             className="object-cover"
             priority
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+            quality={75}
           />
           {/* Semi-transparent overlay so ocean/whale image shows through; dark at top for header, fade to white at bottom only. */}
           <div
@@ -128,7 +129,8 @@ export default function HomePage() {
             width={850}
             height={567}
             className="w-full h-auto object-contain object-top"
-            style={{ filter: 'blur(0.75px)' }}
+            sizes="(max-width: 768px) 100vw, 850px"
+            loading="lazy"
           />
         </div>
         <div className="relative z-[2] max-w-[1100px] mx-auto pt-40 flex flex-col items-center">
@@ -184,6 +186,8 @@ export default function HomePage() {
                 width={520}
                 height={347}
                 className="w-full h-auto object-contain"
+                sizes="(max-width: 768px) 90vw, 520px"
+                loading="lazy"
               />
             </div>
           </div>
