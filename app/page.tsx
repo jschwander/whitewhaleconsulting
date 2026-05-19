@@ -22,33 +22,33 @@ export default function HomePage() {
             aria-hidden
           />
         </div>
-        <div className="relative z-20 max-w-2xl mx-auto">
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ivory font-medium leading-tight">
+        <div className="relative z-20 max-w-3xl mx-auto px-2 sm:px-0">
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[4.5rem] text-ivory font-medium leading-[1.1] tracking-tight">
             It&apos;s Never Just the Whale.
           </h1>
-          <p className="mt-6 text-center text-base sm:text-lg leading-relaxed max-w-xl mx-auto">
+          <p className="mt-8 text-center text-lg sm:text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto">
             <span className="block text-ivory/95 font-medium">
               Most problems in an organization are not the real problem.
             </span>
-            <span className="block mt-2 text-ivory/80">
+            <span className="block mt-3 text-ivory/85">
               We help leaders address what is actually happening beneath the surface.
             </span>
           </p>
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
             <AppLink
               href="/contact"
-              className="inline-flex items-center justify-center px-6 py-3.5 rounded-md bg-teal text-white font-semibold hover:bg-teal-light transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-md bg-teal text-white font-semibold text-base sm:text-lg hover:bg-teal-light transition-colors"
             >
               Book a Call
             </AppLink>
             <AppLink
               href="/services"
-              className="inline-flex items-center justify-center px-6 py-3.5 rounded-md border border-ivory/40 text-ivory font-medium hover:bg-white/5 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-md border border-ivory/40 text-ivory font-medium text-base sm:text-lg hover:bg-white/5 transition-colors"
             >
               See Services
             </AppLink>
           </div>
-          <p className="mt-8 text-ivory/70 text-sm">
+          <p className="mt-10 text-ivory/75 text-base sm:text-lg tracking-wide">
             Coaching • Strategic Planning • Conflict Resolution
           </p>
         </div>
