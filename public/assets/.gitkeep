@@ -4,4 +4,5 @@
 # - logodark.png      (dark navy logo for light header)
 # - hero.webp         (ocean + whale hero image)
 # - whale.png         (one-color whale for "One good conversation" section)
+# - whalefavicon.png  (512×512, whale tail — used for site favicon)
 # Conversation section texture is CSS-only (see .section-conversation in globals.css)

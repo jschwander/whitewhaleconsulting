@@ -20,6 +20,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(CANONICAL_SITE_URL),
+  icons: {
+    icon: [{ url: '/assets/whalefavicon.png', sizes: '512x512', type: 'image/png' }],
+    apple: [{ url: '/assets/whalefavicon.png', sizes: '512x512', type: 'image/png' }],
+  },
   title: 'White Whale Consulting | Clarity Beneath the Surface',
   description:
     'We help leaders get beneath the surface—coaching, strategic planning, and conflict resolution so teams can move forward with clarity.',
